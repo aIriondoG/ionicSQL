@@ -6,6 +6,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+//Implementacion de SQLite
+import { SQLite } from '@ionic-native/sqlite';
+//Implementacion del proveedor
+import { TasksServiceProvider } from '../providers/tasks-service/tasks-service';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    SQLite,
+    TasksService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    TasksServiceProvider
   ]
 })
 export class AppModule {}
